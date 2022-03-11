@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
     const id = req.params.id;
     const startup = await Startup.findByPk(id);
     if(!startup){
-        return res.json({ message : 'Startup not found!' });
+        return res.status(400).json({ message : 'Startup not found!' });
     }
     res.json({ message : 'Startup view!', data : startup });
 });
@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
     const startup = await Startup.findByPk(id);
 
     if(!startup){
-        return res.json({ message : 'Startup not found!' });
+        return res.status(400).json({ message : 'Startup not found!' });
     }
 
     const schema = {
@@ -78,7 +78,7 @@ router.delete('/:id', async (req, res) => {
     const id = req.params.id;
     const startup = await Startup.findByPk(id);
     if(!startup){
-        return res.json({ message : 'Startup not found!' });
+        return res.status(400).json({ message : 'Startup not found!' });
     }
     await startup.destroy();
     res.json({ message : 'Startup is deleted!'});
