@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "721d4ac1-6261-4a09-845e-7d519db05dea",
+		"name": "startup-express-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Startup",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/startups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"startups"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Startup",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/startups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"startups"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"157-rmoA7bgi3tlumBTH84h3caA5GZE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Mar 2022 10:43:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Startup listed!\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Dani Sofyan\",\n            \"email\": \"dani@indigo.id\",\n            \"desc\": \"My Startup\",\n            \"createdAt\": \"2022-03-11T10:42:14.000Z\",\n            \"updatedAt\": \"2022-03-11T10:42:14.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Example\",\n            \"email\": \"example@indigo.id\",\n            \"desc\": \"My Example\",\n            \"createdAt\": \"2022-03-11T10:42:58.000Z\",\n            \"updatedAt\": \"2022-03-11T10:42:58.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "SHOW Startup",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/startups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"startups",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SHOW Startup",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/startups/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"startups",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "187"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"bb-wfyHhvX//JalR3XvH+WUV+tNmuk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Mar 2022 10:43:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Startup view!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"My Startup\",\n        \"createdAt\": \"2022-03-11T10:42:14.000Z\",\n        \"updatedAt\": \"2022-03-11T10:42:14.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE Startup",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/startups/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"startups",
+						"7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE Startup",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/startups/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"startups",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-TM+vMzZW3CtaXgygg1LLX9D3Mg0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Mar 2022 10:43:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Startup is deleted!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "CREATE Startup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/startups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"startups"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATE Startup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/startups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"startups"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cb-xpJZNAnT5wXR3DdqWb2Eotxeyks\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Mar 2022 10:42:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Startup successfully created!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"My Startup\",\n        \"updatedAt\": \"2022-03-11T10:42:14.104Z\",\n        \"createdAt\": \"2022-03-11T10:42:14.104Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UPDATE Startup",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Edit Dani Sofyan\",\n    \"desc\" : \"Edit My Startup\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/startups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"startups",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UPDATE Startup",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Edit Dani Sofyan\",\n    \"desc\" : \"Edit My Startup\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/startups/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"startups",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "199"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c7-hEtkACZskpPvtMz3bk3jG/TMafE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Mar 2022 10:43:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Startup edited!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Edit Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"Edit My Startup\",\n        \"createdAt\": \"2022-03-11T10:42:14.000Z\",\n        \"updatedAt\": \"2022-03-11T10:43:30.356Z\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
