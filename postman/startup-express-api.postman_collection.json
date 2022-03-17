@@ -6,10 +6,10 @@
 	},
 	"item": [
 		{
-			"name": "User",
+			"name": "Auth",
 			"item": [
 				{
-					"name": "CREATE User",
+					"name": "REGISTER",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -23,14 +23,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/users",
+							"raw": "{{url}}/api/v1/auth/register",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"users"
+								"auth",
+								"register"
 							]
 						}
 					},
@@ -50,14 +51,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/users",
+									"raw": "http://localhost:3000/register",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "3000",
 									"path": [
-										"users"
+										"register"
 									]
 								}
 							},
@@ -98,20 +99,15 @@
 							"body": "{\n    \"message\": \"User successfully created!\",\n    \"data\": {\n        \"id\": 2,\n        \"firstName\": \"Dani\",\n        \"lastName\": \"Sofyan\",\n        \"username\": \"danixsofyans\",\n        \"email\": \"dani@indigo.ids\",\n        \"password\": \"$2b$10$ipIJTmhcqDhzvBY4Gl6qhOiGZIJqIEBTPlD29zgfJRHO7dScvHs36\",\n        \"updatedAt\": \"2022-03-15T12:34:36.514Z\",\n        \"createdAt\": \"2022-03-15T12:34:36.514Z\"\n    }\n}"
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "Startup",
-			"item": [
+				},
 				{
-					"name": "UPDATE Startup",
+					"name": "LOGIN",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Edit Dani Sofyan\",\n    \"desc\" : \"Edit My Startup\"\n}",
+							"raw": "{\n    \"email\": \"dani@indigo.id\",\n    \"password\": \"123qweasd\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -119,27 +115,27 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/startups/1",
+							"raw": "{{url}}/api/v1/auth/login",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"startups",
-								"1"
+								"auth",
+								"login"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "UPDATE Startup",
+							"name": "LOGIN",
 							"originalRequest": {
-								"method": "PUT",
+								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Edit Dani Sofyan\",\n    \"desc\" : \"Edit My Startup\"\n}",
+									"raw": "{\n    \"email\": \"dani@indigo.id\",\n    \"password\": \"123qweasd\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -147,15 +143,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/startups/1",
-									"protocol": "http",
+									"raw": "{{url}}/api/v1/login",
 									"host": [
-										"localhost"
+										"{{url}}"
 									],
-									"port": "3000",
 									"path": [
-										"startups",
-										"1"
+										"api",
+										"v1",
+										"login"
 									]
 								}
 							},
@@ -173,15 +168,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "199"
+									"value": "293"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"c7-hEtkACZskpPvtMz3bk3jG/TMafE\""
+									"value": "W/\"125-eZByNoShmYGxLANOowoYu17LT5E\""
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 11 Mar 2022 10:43:30 GMT"
+									"value": "Thu, 17 Mar 2022 08:49:52 GMT"
 								},
 								{
 									"key": "Connection",
@@ -193,7 +188,198 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"Startup edited!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Edit Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"Edit My Startup\",\n        \"createdAt\": \"2022-03-11T10:42:14.000Z\",\n        \"updatedAt\": \"2022-03-11T10:43:30.356Z\"\n    }\n}"
+							"body": "{\n    \"message\": \"Login success!\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdE5hbWUiOiJEYW5pIiwibGFzdE5hbWUiOiJTb2Z5YW4iLCJ1c2VybmFtZSI6ImRhbml4c29meWFuIiwiZW1haWwiOiJkYW5pQGluZGlnby5pZCJ9LCJpYXQiOjE2NDc1MDY5OTJ9.MgyCCFKjPowUAs49Vv-Vh2yPJ3dhoYexrCubEysKjfM\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "USER LOGIN",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LOGIN",
+							"originalRequest": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token-access}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"user"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": "",
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Startup",
+			"item": [
+				{
+					"name": "CREATE Startup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/startups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"startups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CREATE Startup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/startups",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"startups"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cb-n79CvAk+jT98f7mQeWlb0/KGIaE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Mar 2022 04:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Startup successfully created!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"My Startup\",\n        \"updatedAt\": \"2022-03-17T04:46:32.792Z\",\n        \"createdAt\": \"2022-03-17T04:46:32.792Z\"\n    }\n}"
 						}
 					]
 				},
@@ -203,6 +389,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -297,6 +493,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -388,8 +594,121 @@
 					]
 				},
 				{
+					"name": "UPDATE Startup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Edit Dani Sofyan\",\n    \"desc\" : \"Edit My Startup\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/startups/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"startups",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UPDATE Startup",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Edit Dani Sofyan\",\n    \"desc\" : \"Edit My Startup\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/startups/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"startups",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "199"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c7-hEtkACZskpPvtMz3bk3jG/TMafE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Mar 2022 10:43:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Startup edited!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Edit Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"Edit My Startup\",\n        \"createdAt\": \"2022-03-11T10:42:14.000Z\",\n        \"updatedAt\": \"2022-03-11T10:43:30.356Z\"\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "DELETE Startup",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -479,106 +798,25 @@
 							"body": "{\n    \"message\": \"Startup is deleted!\"\n}"
 						}
 					]
-				},
-				{
-					"name": "CREATE Startup",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/v1/startups",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"startups"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "CREATE Startup",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/v1/startups",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"startups"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "203"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"cb-n79CvAk+jT98f7mQeWlb0/KGIaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Mar 2022 04:46:32 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"Startup successfully created!\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Dani Sofyan\",\n        \"email\": \"dani@indigo.id\",\n        \"desc\": \"My Startup\",\n        \"updatedAt\": \"2022-03-17T04:46:32.792Z\",\n        \"createdAt\": \"2022-03-17T04:46:32.792Z\"\n    }\n}"
-						}
-					]
 				}
 			]
 		},
 		{
-			"name": "Auth",
+			"name": "User",
 			"item": [
 				{
-					"name": "REGISTER",
+					"name": "CREATE User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token-access}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -618,14 +856,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/register",
+									"raw": "http://localhost:3000/users",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "3000",
 									"path": [
-										"register"
+										"users"
 									]
 								}
 							},
@@ -666,97 +904,6 @@
 							"body": "{\n    \"message\": \"User successfully created!\",\n    \"data\": {\n        \"id\": 2,\n        \"firstName\": \"Dani\",\n        \"lastName\": \"Sofyan\",\n        \"username\": \"danixsofyans\",\n        \"email\": \"dani@indigo.ids\",\n        \"password\": \"$2b$10$ipIJTmhcqDhzvBY4Gl6qhOiGZIJqIEBTPlD29zgfJRHO7dScvHs36\",\n        \"updatedAt\": \"2022-03-15T12:34:36.514Z\",\n        \"createdAt\": \"2022-03-15T12:34:36.514Z\"\n    }\n}"
 						}
 					]
-				},
-				{
-					"name": "LOGIN",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"dani@indigo.id\",\n    \"password\": \"123qweasd\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/v1/login",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"login"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "LOGIN",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"dani@indigo.id\",\n    \"password\": \"123qweasd\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/v1/login",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"login"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "293"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"125-eZByNoShmYGxLANOowoYu17LT5E\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 17 Mar 2022 08:49:52 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"Login success!\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdE5hbWUiOiJEYW5pIiwibGFzdE5hbWUiOiJTb2Z5YW4iLCJ1c2VybmFtZSI6ImRhbml4c29meWFuIiwiZW1haWwiOiJkYW5pQGluZGlnby5pZCJ9LCJpYXQiOjE2NDc1MDY5OTJ9.MgyCCFKjPowUAs49Vv-Vh2yPJ3dhoYexrCubEysKjfM\"\n    }\n}"
-						}
-					]
 				}
 			]
 		}
@@ -785,6 +932,11 @@
 		{
 			"key": "url",
 			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token-access",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdE5hbWUiOiJEYW5pIiwibGFzdE5hbWUiOiJTb2Z5YW4iLCJ1c2VybmFtZSI6ImRhbml4c29meWFuIiwiZW1haWwiOiJkYW5pQGluZGlnby5pZCJ9LCJpYXQiOjE2NDc1MDY5OTJ9.MgyCCFKjPowUAs49Vv-Vh2yPJ3dhoYexrCubEysKjfM",
 			"type": "string"
 		}
 	]
