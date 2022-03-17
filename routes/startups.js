@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const { index, show, store, update, destroy } = require('../controller/StartupController')
+const { index, show, store, update, destroy } = require('../controller/StartupController');
+
 router.get('/', index);
 router.get('/:id', show);
 router.post('/', store);
