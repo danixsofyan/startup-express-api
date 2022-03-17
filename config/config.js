@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const{
+  SECRET,
   DB_DIALECT,
   DB_HOSTNAME,
   DB_DATABASE,

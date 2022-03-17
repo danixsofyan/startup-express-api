@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
   }
   
   const startup = await Startup.create(req.body);
-  res.json({ message : 'Startup successfully created!', data : startup });
+  res.status(201).json({ message : 'Startup successfully created!', data : startup });
 
 });
 
