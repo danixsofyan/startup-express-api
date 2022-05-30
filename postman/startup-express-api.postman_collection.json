@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "721d4ac1-6261-4a09-845e-7d519db05dea",
 		"name": "startup-express-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4441805"
 	},
 	"item": [
 		{
@@ -236,21 +237,11 @@
 						{
 							"name": "LOGIN",
 							"originalRequest": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token-access}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
+								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n    \"email\": \"dani@indigo.id\",\n    \"password\": \"123qweasd\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -258,22 +249,52 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/api/v1/auth/user",
+									"raw": "{{url}}/api/v1/login",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"v1",
-										"auth",
-										"user"
+										"login"
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
-							"header": "",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"125-eZByNoShmYGxLANOowoYu17LT5E\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Mar 2022 08:49:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": ""
+							"body": "{\n    \"message\": \"Login success!\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdE5hbWUiOiJEYW5pIiwibGFzdE5hbWUiOiJTb2Z5YW4iLCJ1c2VybmFtZSI6ImRhbml4c29meWFuIiwiZW1haWwiOiJkYW5pQGluZGlnby5pZCJ9LCJpYXQiOjE2NDc1MDY5OTJ9.MgyCCFKjPowUAs49Vv-Vh2yPJ3dhoYexrCubEysKjfM\"\n    }\n}"
 						}
 					]
 				}
@@ -299,7 +320,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
+							"raw": "{\n    \"name\" : \"Dani Sofyan\",\n    \"email\": \"dani@indigo.id\",\n    \"desc\" : \"My Startup\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -936,7 +957,7 @@
 		},
 		{
 			"key": "token-access",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdE5hbWUiOiJEYW5pIiwibGFzdE5hbWUiOiJTb2Z5YW4iLCJ1c2VybmFtZSI6ImRhbml4c29meWFuIiwiZW1haWwiOiJkYW5pQGluZGlnby5pZCJ9LCJpYXQiOjE2NDc1MDY5OTJ9.MgyCCFKjPowUAs49Vv-Vh2yPJ3dhoYexrCubEysKjfM",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4Nzc1MWQtZDkwMC00Mjc2LWEwZGYtMWFlYzhmYjk4ZmQ2IiwiZmlyc3ROYW1lIjoiRGFuaSIsImxhc3ROYW1lIjoiU29meWFuIiwidXNlcm5hbWUiOiJkYW5peHNvZnlhbiIsImVtYWlsIjoiZGFuaUBpbmRpZ28uaWQifSwiaWF0IjoxNjUzOTI5MDEzfQ.bDd0reKlPdQye3eFbKhVXcHyvwoEAIL5mnL8snl9vUk",
 			"type": "string"
 		}
 	]

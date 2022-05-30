@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const{ JWT_SECRET } = process.env;
+var uuid = require('uuid');
 
 exports.register = async (req, res) => {
     const schema = {
@@ -38,6 +39,7 @@ exports.register = async (req, res) => {
     else {
     const salt = bcrypt.genSaltSync(saltRounds);
     req.body.password = bcrypt.hashSync(req.body.password, salt);
+    req.body.id = uuid.v4();
     
     const user = await User.create(req.body);
     res.status(201).json({ message : 'User successfully created!', data : user });
@@ -85,8 +87,24 @@ exports.login = async (req, res) => {
 }
 
 exports.userLogin = async (req, res) => {
-    const id = req.body.id;
-    console.log(id);
-    const user = await User.findByPk(id);
-    res.json({ message : 'User login info', data : user });
+    if(req.headers.authorization != null){
+        const token = req.headers.authorization.split(' ')[1];
+        try {
+            const decode = jwt.verify(token, JWT_SECRET);
+            const id = decode.user.id;
+            const user = await User.findByPk(id);
+            if(user != null){
+                res.json({ message : 'User login info', data : user });
+            } else {
+                res.status(400).json({ message : 'Invalid token'});
+                console.log('Invalid token');
+            }
+        } catch(err) {
+          res.status(400).json({ message : 'Invalid token'});
+          console.log('Invalid token');
+        }
+    } else {
+        res.status(400).json({ message : 'Unauthorized request, a token is required for authentication'});
+        console.log('Unauthorized request, a token is required for authentication');
+    }
 }

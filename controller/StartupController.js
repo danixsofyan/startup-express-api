@@ -32,9 +32,14 @@ exports.store = async (req, res) => {
     .json(validate);
     
     }
+
+    try {
+        const startup = await Startup.create(req.body);
+        res.status(201).json({ message : 'Startup successfully created!', data : startup });
+    } catch (err) {
+        res.status(400).json({ message : err});
+    }
     
-    const startup = await Startup.create(req.body);
-    res.status(201).json({ message : 'Startup successfully created!', data : startup });
 }
 
 exports.update = async (req, res) => {
