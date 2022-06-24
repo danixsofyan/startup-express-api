@@ -9,13 +9,14 @@ module.exports = async (req, res, next) => {
         try {
             const decode = jwt.verify(token, JWT_SECRET);
             const id = decode.user.id;
+            console.log(id);
             const user = await User.findByPk(id);
             if(user != null){
                 console.log('Token authorized');
                 next()
             } else {
-                res.status(400).json({ message : 'Invalid token'});
-                console.log('Invalid token');
+                res.status(400).json({ message : 'User not found'});
+                console.log('User not found');
             }
         } catch(err) {
           res.status(400).json({ message : 'Invalid token'});

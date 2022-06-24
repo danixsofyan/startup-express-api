@@ -42,7 +42,16 @@ exports.register = async (req, res) => {
     req.body.id = uuid.v4();
     
     const user = await User.create(req.body);
-    res.status(201).json({ message : 'User successfully created!', data : user });
+    const token = jwt.sign({
+        user : {
+            id : user.id,
+            firstName : user.firstName,
+            lastName : user.lastName,
+            username : user.username,
+            email : user.email,
+        }
+    }, JWT_SECRET)
+    res.status(201).json({ message : 'User successfully created!', data : {user, token} });
     }
 }
 
@@ -73,7 +82,7 @@ exports.login = async (req, res) => {
                     email : user.email,
                 }
             }, JWT_SECRET)
-            res.status(200).json({ message : 'Login success!', data : {token} });
+            res.status(200).json({ message : 'Login success!', data : {user, token} });
         } else {
             res.status(400).json({ message : 'These credentials do not match our records.'});
             console.log('These credentials do not match our records.');
