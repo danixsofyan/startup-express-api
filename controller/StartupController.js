@@ -5,7 +5,8 @@ const v = new Validator();
 
 exports.index = async (req, res) => {
     const startup = await Startup.findAll();
-    res.json({ message : 'Startup listed!', data : startup });
+    const iduser = 1
+    res.json({ message : 'Startup listed!', data : startup, iduser:  iduser});
 }
 
 exports.show = async (req, res) => {
@@ -19,8 +20,23 @@ exports.show = async (req, res) => {
 
 exports.store = async (req, res) => {
     const schema = {
+        id_user: "integer",
         name: "string",
+        solution: "string",
+        id_usecase_tribe: "integer",
+        id_industry: "integer",
+        target_customer: "string",
+        business_model: "string",
+        location: "string",
+        time_of_operation: "string",
+        id_stage: "integer",
+        link: "string",
+        contact_person: "string",
         email: "email",
+        phone: "integer",
+        pitch_deck: "string",
+        analysis: "string",
+        id_status: "integer",
         desc: "string",
     }
 

@@ -13,6 +13,7 @@ module.exports = async (req, res, next) => {
             const user = await User.findByPk(id);
             if(user != null){
                 console.log('Token authorized');
+                console.log('iduser='+id);
                 next()
             } else {
                 res.status(400).json({ message : 'User not found'});

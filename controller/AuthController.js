@@ -15,6 +15,7 @@ exports.register = async (req, res) => {
         username: "string",
         email: { type: "string", unique: true },
         password: "string",
+        confirmPassword: { type: "equal", field: "password" }
     }
 
     const validate = v.validate(req.body, schema);
