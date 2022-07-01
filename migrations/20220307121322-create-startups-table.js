@@ -10,7 +10,7 @@ module.exports = {
          allowNull: false
         },
         id_user: { 
-          type: Sequelize.INTEGER,
+          type: Sequelize.UUID,
           allowNull: true
         },
         name: {
